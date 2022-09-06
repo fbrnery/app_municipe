@@ -21,18 +21,11 @@ class EnderecosController < ApplicationController
 
   # POST /enderecos or /enderecos.json
   def create
-    @endereco = Endereco.new(endereco_params)
-
-    respond_to do |format|
-      if @endereco.save
-        format.html { redirect_to endereco_url(@endereco), notice: "Endereco was successfully created." }
-        format.json { render :show, status: :created, location: @endereco }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @endereco.errors, status: :unprocessable_entity }
-      end
-    end
+    @municipe = Municipe.find(params[:municipe_id])
+    @endereco = @municipe.enderecos.create(endereco_params)
+    redirect_to municipe_path(@municipe)
   end
+  
 
   # PATCH/PUT /enderecos/1 or /enderecos/1.json
   def update
@@ -49,14 +42,11 @@ class EnderecosController < ApplicationController
 
   # DELETE /enderecos/1 or /enderecos/1.json
   def destroy
+    @municipe = Municipe.find(params[:municipe_id])
+    @endereco = @municipe.enderecos.find(params[:id])
     @endereco.destroy
-
-    respond_to do |format|
-      format.html { redirect_to enderecos_url, notice: "Endereco was successfully destroyed." }
-      format.json { head :no_content }
+      redirect_to municipe_path(@municipe)
     end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_endereco

@@ -1,57 +1,35 @@
-<%= form_with(model: endereco) do |form| %>
-  <% if endereco.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(endereco.errors.count, "error") %> prohibited this endereco from being saved:</h2>
-
-      <ul>
-        <% endereco.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :cep %>
-    <%= form.text_field :cep %>
-  </div>
-
-  <div class="field">
-    <%= form.label :logradouro %>
-    <%= form.text_field :logradouro %>
-  </div>
-
-  <div class="field">
-    <%= form.label :complemento %>
-    <%= form.text_field :complemento %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bairro %>
-    <%= form.text_field :bairro %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cidade %>
-    <%= form.text_field :cidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :uf %>
-    <%= form.text_field :uf %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ibge %>
-    <%= form.text_field :ibge %>
-  </div>
-
-  <div class="field">
-    <%= form.label :municipe_id %>
-    <%= form.text_field :municipe_id %>
-  </div>
-
-  <div class="actions">
+<%= form_with model: [ @municipe, @municipe.enderecos.build ] do |form| %>
+  <p>
+    <%= form.label :cep %><br>
+    <%= form.text_field  :cep %>
+  </p>
+  <p>
+    <%= form.label :logradouro %><br>
+    <%= form.text_field  :logradouro %>
+  </p>
+  <p>
+    <%= form.label :numero %><br>
+    <%= form.text_field  :numero %>
+  </p>
+  <p>
+    <%= form.label :complemento %><br>
+    <%= form.text_field  :complemento %>
+  </p>
+  <p>
+    <%= form.label :cidade %><br>
+    <%= form.text_field  :cidade %>
+  </p>
+  <p>
+    <%= form.label :uf %><br>
+    <%= form.text_field  :uf %>
+  </p>
+  <p>
+    <%= form.label :ibge %><br>
+    <%= form.text_field  :ibge %>
+  </p>
+  <p>
     <%= form.submit %>
-  </div>
+  </p>
 <% end %>
+
+

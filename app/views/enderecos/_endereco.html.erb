@@ -1,0 +1,34 @@
+<p>
+  <strong>Cep:</strong>
+  <%= endereco.cep %>
+</p>
+
+<p>
+  <strong>Logradouro:</strong>
+  <%= endereco.logradouro %>
+</p>
+
+<p>
+  <strong>Complemento:</strong>
+  <%= endereco.complemento %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= endereco.cidade %>
+</p>
+
+<p>
+  <strong>Uf:</strong>
+  <%= endereco.uf %>
+</p>
+
+<p>
+  <strong>Ibge:</strong>
+  <%= endereco.ibge %>
+</p>
+
+ <%= link_to 'Apagar Endereço', [endereco.municipe, endereco],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+              <hr>
