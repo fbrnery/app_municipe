@@ -1,41 +1,66 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="container-fluid">
+  <% if notice %>
+  <h4><aside id="notice"><%= notice %></aside></h4>
+  <% end %>
+</div>
 
-<h1>Municipes</h1>
-
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <div class="cadastro">
+    <h1 class="mt-5">APP Municipes</h1>
+    <hr>
+    <p class="lead">Área do Administrador - Cadastro de cidadãos: </p>
 <table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Cpf</th>
-      <th>Cns</th>
-      <th>Email</th>
-      <th>Nascimento</th>
-      <th>Telefone</th>
-      <th>Image url</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
+  <tfoot>
+    <tr>
+      <td colspan="3">
+      <div class="btn btn-primary">
+        <h5><%= link_to 'Novo Cadastro >>', new_municipe_path %> </h5>
+      </div>
+      </td>
+    </tr>
+  </tfoot>
   <tbody>
-    <% @municipes.each do |municipe| %>
-      <tr>
-        <td><%= municipe.nome %></td>
-        <td><%= municipe.cpf %></td>
-        <td><%= municipe.cns %></td>
-        <td><%= municipe.email %></td>
-        <td><%= municipe.nascimento %></td>
-        <td><%= municipe.telefone %></td>
-        <td><%= municipe.image_url %></td>
-        <td><%= municipe.status %></td>
-        <td><%= link_to 'Show', municipe %></td>
-        <td><%= link_to 'Edit', edit_municipe_path(municipe) %></td>
-        <td><%= link_to 'Destroy', municipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+   <% @municipes.each do |municipe| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+        <td class="image">
+          <%= image_tag(municipe.image_url, class: 'list_image') %>
+        </td>
+
+        <td class="description">
+          <h4><%= municipe.nome %></h4>
+          <h4><%= municipe.cpf %></h4>
+          <h4><%= municipe.cns %></h4>
+          <h4><%= municipe.email %></h4>
+          <h4><%= municipe.nascimento.strftime("%d/%m/%Y") %></h4>
+          <h4><%= municipe.telefone %></h4>
+          <h4><%= municipe.status %></h4>
+        </td>
       </tr>
+      <td class="actions">
+         <ul>
+          <div class="btn btn-outline-primary">
+            <%= link_to 'Mostrar', municipe %>
+            </div>
+            <div class="btn btn-outline-primary">
+            <%= link_to 'Editar', edit_municipe_path(municipe) %>
+            </div>
+            <div class="btn btn-outline-primary">
+          
+              <%= link_to 'Deletar',
+                           municipe, 
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %>
+            </div>
+          </ul>
+          <hr>
+        </td>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
-<br>
-
-<%= link_to 'New Municipe', new_municipe_path %>

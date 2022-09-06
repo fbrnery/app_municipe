@@ -1,4 +1,7 @@
 <%= form_with model: [ @municipe, @municipe.enderecos.build ] do |form| %>
+  
+<div class="container-sm">
+  <div class="row">
   <p>
     <%= form.label :cep %><br>
     <%= form.text_field  :cep %>
@@ -30,6 +33,9 @@
   <p>
     <%= form.submit %>
   </p>
+  </div>
+  </div>
+  <br><br>
 <% end %>
 
 

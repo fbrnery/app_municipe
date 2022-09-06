@@ -1,24 +1,65 @@
+<br>
+<div class="container-fluid">
+<div class="row">
+<h4><p id="notice"><%= notice %></p></h4>
+<br>
+<h1>Dados do cidadão cadastrado:</h1>
+<hr>
+<br>
+<p>
+  <strong>Nome:</strong>
+  <%= @municipe.nome %>
+</p>
 
-<h1><%= @municipe.nome %></h1>
-<p><%= @municipe.cpf %></p>
-<p><%= @municipe.cns %></p>
-<p><%= @municipe.email %></p>
-<p><%= @municipe.nascimento %></p>
-<p><%= @municipe.telefone %></p>
-<p> <%= @municipe.image_url %></p>
-<p><%= @municipe.status %></p>
+<p>
+  <strong>Cpf:</strong>
+  <%= @municipe.cpf %>
+</p>
+
+<p>
+  <strong>Cns:</strong>
+  <%= @municipe.cns %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @municipe.email %>
+</p>
+
+<p>
+  <strong>Nascimento:</strong>
+  <%= @municipe.nascimento %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @municipe.telefone %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @municipe.image_url %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @municipe.status %>
+</p>
 
 <ul>
 <%= link_to 'Edit', edit_municipe_path(@municipe) %> |
-<%= link_to 'Back', municipes_path %>
+<%= link_to 'Back', municipes_path %> |
 <%= link_to "Destroy", municipe_path(@municipe),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
 </ul>
 <hr>
+</div>
+</div>
 
-<h2>Enderecos:</h2>
 <%= render @municipe.enderecos %>
 
-<h2>Cadastro de Enderecos:</h2>
+<div class="container-sm">
+<div class="row">
+<h3>Cadastrar Endereço:<hr></h3>
 <%= render 'enderecos/form' %>
