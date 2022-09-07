@@ -6,6 +6,7 @@
 <hr>
     <div class="checkbox mb-3">
         <br>
+         <% unless user_signed_in? %>
          <h6 class="h3 mb-3 fw-normal">Please sign in</h1>
     <a class="w-100 btn btn-lg btn-primary" href='/users/sign_in' type="submit">
     Sign in
@@ -14,6 +15,10 @@
     <a class="w-100 btn btn-lg btn-primary" type="submit" href='/users/sign_up'>
     Sign up
     </a>
+    <% end %>  
+    <% if user_signed_in? %>
+    <%= link_to "<< Sair >>", destroy_user_session_path, method: :delete, class: 'button is-light'  %>
+    <% end %>
     </div>
     <hr>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
