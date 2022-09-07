@@ -103,3 +103,46 @@ button, input, optgroup, select, textarea {
     color: #212529;
 }
 
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.m-auto {
+    margin: auto!important;
+    text-align: center;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #f8f9fa;
+    background-color: var(--bs-nav-pills-link-active-bg);
+}
+
+.nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: var(--bs-nav-pills-border-radius);
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
