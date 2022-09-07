@@ -3,6 +3,8 @@ class MunicipesController < ApplicationController
 
   # GET /municipes or /municipes.json
   def index
+    @q = Municipe.ransack(params[:q])
+    @municipes = @q.result(distinct: true)
     @municipes = Municipe.all
   end
 

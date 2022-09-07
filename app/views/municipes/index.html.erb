@@ -1,4 +1,3 @@
-<br>
 <div class="container-fluid">
   <% if notice %>
   <h4><aside id="notice"><%= notice %></aside></h4>
@@ -10,7 +9,14 @@
     <h1 class="mt-5">APP Municipes</h1>
     <hr>
     <p class="lead">Área do Administrador - Cadastro de cidadãos: </p>
+    <%= search_form_for @q do |f| %>
+    <%= f.label :nome %>
+    <%= f.collection_select :nome_eq, Municipe.all, :nome, :nome, {}, style: 'width: 200px;' %>
+    <%= f.submit %>
+<% end %>
+<hr>
 <table>
+<br>
 
   <tfoot>
     <tr>
@@ -42,6 +48,7 @@
       </tr>
       <td class="actions">
          <ul>
+          <br>
           <div class="btn btn-outline-primary">
             <%= link_to 'Mostrar', municipe %>
             </div>

@@ -1,5 +1,11 @@
 @import 'bootstrap/scss/bootstrap';
 
+/*
+*= require select2
+*= require_tree .
+*= require_self
+*/
+
 
     .btn-outline-primary:hover{
       a{
