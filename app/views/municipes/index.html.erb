@@ -31,13 +31,13 @@
         </td>
 
         <td class="description">
-          <h4><%= municipe.nome %></h4>
-          <h4><%= municipe.cpf %></h4>
-          <h4><%= municipe.cns %></h4>
-          <h4><%= municipe.email %></h4>
-          <h4><%= municipe.nascimento.strftime("%d/%m/%Y") %></h4>
-          <h4><%= municipe.telefone %></h4>
-          <h4><%= municipe.status %></h4>
+          <h5>Nome: <%= municipe.nome %></h5>
+          <h5>CPF: <%= municipe.cpf %></h5>
+          <h5>CNS: <%= municipe.cns %></h5>
+          <h5>E-mail: <%= municipe.email %></h5>
+          <h5>Data de Nascimento: <%= municipe.nascimento.strftime("%d/%m/%Y") %></h5>
+          <h5>Telefone: <%= municipe.telefone %></h5>
+          <h5>Status: <%= municipe.status %></h5>
         </td>
       </tr>
       <td class="actions">
