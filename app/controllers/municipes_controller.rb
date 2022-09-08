@@ -27,6 +27,7 @@ class MunicipesController < ApplicationController
 
     respond_to do |format|
       if @municipe.save
+        MunicipeMailer.received(@municipe).deliver_later
         format.html { redirect_to municipe_url(@municipe), notice: "Municipe was successfully created." }
         format.json { render :show, status: :created, location: @municipe }
       else
