@@ -1,13 +1,20 @@
 <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-       <%= image_tag 'login2.png' =%>
-        <span class="fs-4">APP MUNICIPE</span>
-      </a>
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <%= image_tag 'login2.png' =%>
+      <span class="fs-4">APP MUNICIPE</span>
+    </a>
 
-      <ul class="nav nav-pills">
-        <li class="nav-item"><%= link_to "Home", home_index_path %></li>
-        <a class="nav-item" href='/municipes'>Records</a>
-      </ul>
-    </header>
-  </div>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><%= link_to "Home", home_index_path %></li>
+      <a class="nav-item" href='/municipes'>Records</a>
+      <% if session[:user_id] %>
+      <nav class="logged_in_nav">
+        <ul>
+          <%= button_to 'Logout', logout_path, method: :delete  %>
+        </ul>
+      </nav>
+      <% end %>
+    </ul>
+  </header>
+</div>

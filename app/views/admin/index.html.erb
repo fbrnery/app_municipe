@@ -1,13 +1,9 @@
-<h1>Bem vindo ao App Municipe</h1>
+<h1>Bem vindo ao App Municipe !!!</h1>
+<br>
 
 <p>
-    It's <%= Time.now %>.
+Acesso em: <%= Time.now %>.
+<hr>
 </p>
 
-<% if session[:user_id] %>
-<nav class="logged_in_nav">
-    <ul>
-        <li><%= button_to 'Logout', logout_path, method: :delete   %></li>
-    </ul>
-</nav>
-<% end %>
+
