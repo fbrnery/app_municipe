@@ -16,6 +16,22 @@ class MunicipeTest < ActiveSupport::TestCase
     
   end
 
+   def new_municipe(image_url)
+    Municipe.new(nome:       "Fulano",
+                cpf: 00000000000,
+                cns: 0000000,
+                email: @teste,
+                nascimento: 00/00/0000,
+                telefone: 91999999999,
+                image_url:   image_url)
+  end
+
+  test "image url" do
+    ok = %w{fred.jpg fred.png FRED.JPG FRED.Jpg
+             http://a.b.c/x/y/z/fred.gif }
+    bad = %w{ fred.doc fred.gif/more fred.gif.more }
+    end
+
   # test "the truth" do
   #   assert true
   # end
