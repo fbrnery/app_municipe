@@ -3,6 +3,7 @@ require "test_helper"
 class MunicipesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @municipe = municipes(:one)
+    @nome = "Fulano"
   end
 
   test "should get index" do
@@ -17,7 +18,18 @@ class MunicipesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create municipe" do
     assert_difference('Municipe.count') do
-      post municipes_url, params: { municipe: { cns: @municipe.cns, cpf: @municipe.cpf, email: @municipe.email, image_url: @municipe.image_url, nascimento: @municipe.nascimento, nome: @municipe.nome, status: @municipe.status, telefone: @municipe.telefone } }
+      post municipes_url, params: { 
+        municipe: 
+        { 
+        cns: @municipe.cns, 
+        cpf: @municipe.cpf, 
+        email: @municipe.email, 
+        image_url: @municipe.image_url, 
+        nascimento: @municipe.nascimento, 
+        status: @municipe.status, 
+        telefone: @municipe.telefone,
+        nome: @nome,
+         } }
     end
 
     assert_redirected_to municipe_url(Municipe.last)
@@ -34,7 +46,18 @@ class MunicipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update municipe" do
-    patch municipe_url(@municipe), params: { municipe: { cns: @municipe.cns, cpf: @municipe.cpf, email: @municipe.email, image_url: @municipe.image_url, nascimento: @municipe.nascimento, nome: @municipe.nome, status: @municipe.status, telefone: @municipe.telefone } }
+    patch municipe_url(@municipe), params: { 
+      municipe: 
+      { 
+      cns: @municipe.cns, 
+      cpf: @municipe.cpf, 
+      email: @municipe.email, 
+      image_url: @municipe.image_url, 
+      nascimento: @municipe.nascimento, 
+      status: @municipe.status, 
+      telefone: @municipe.telefone,
+      nome: @nome,
+       } }
     assert_redirected_to municipe_url(@municipe)
   end
 

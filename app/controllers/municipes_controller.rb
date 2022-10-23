@@ -31,8 +31,10 @@ class MunicipesController < ApplicationController
         format.html { redirect_to municipe_url(@municipe), notice: "Municipe was successfully created." }
         format.json { render :show, status: :created, location: @municipe }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @municipe.errors, status: :unprocessable_entity }
+        puts @municipe.errors.full_messages
+        format.html { render :new }
+        format.json { render json: @municipe.errors, 
+        status: :unprocessable_entity }
       end
     end
   end
