@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <% if notice %>
-  <h4><aside id="notice"><%= notice %></aside></h4>
+  <h4>
+    <aside id="notice"><%= notice %></aside>
+  </h4>
   <% end %>
 </div>
 
@@ -13,61 +15,54 @@
     <%= f.label :nome %>
     <%= f.collection_select :nome_eq, Municipe.all, :nome, :nome, {}, style: 'width: 200px;' %>
     <%= f.submit %>
-<% end %>
-<hr>
-<table>
-<br>
+    <% end %>
+    <hr>
+    <table>
+      <br>
 
-  <tfoot>
-    <tr>
-      <td colspan="3">
-      <div class="btn btn-primary">
-        <h5><%= link_to 'Novo Cadastro >>', new_municipe_path %> </h5>
-      </div>
-      </td>
-    </tr>
-  </tfoot>
-  <tbody>
-   <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
-   <% @municipes.each do |municipe| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <tfoot>
+        <tr>
+          <td colspan="3">
+            <div class="btn btn-primary">
+              <h5><%= link_to 'Novo Cadastro >>', new_municipe_path %> </h5>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+        <% @municipes.each do |municipe| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
-        <td class="image">
-          <%= image_tag(municipe.image_url, class: 'list_image') %>
-        </td>
+          <td class="image">
+            <%= image_tag(municipe.image_url, class: 'list_image') %>
+          </td>
 
-        <td class="description">
-          <h5>Nome: <%= municipe.nome %></h5>
-          <h5>CPF: <%= municipe.cpf %></h5>
-          <h5>CNS: <%= municipe.cns %></h5>
-          <h5>E-mail: <%= municipe.email %></h5>
-          <h5>Data de Nascimento: <%= municipe.nascimento.strftime("%d/%m/%Y") %></h5>
-          <h5>Telefone: <%= municipe.telefone %></h5>
-          <h5>Status: <%= municipe.status %></h5>
-        </td>
-      </tr>
-      <td class="actions">
-         <ul>
-          <br>
-          <div class="btn btn-outline-primary">
-            <%= link_to 'Mostrar', municipe %>
+          <td class="description">
+            <h5>Nome: <%= municipe.nome %></h5>
+            <h5>CPF: <%= municipe.cpf %></h5>
+            <h5>CNS: <%= municipe.cns %></h5>
+            <h5>E-mail: <%= municipe.email %></h5>
+            <h5>Data de Nascimento: <%= municipe.nascimento.strftime("%d/%m/%Y") %></h5>
+            <h5>Telefone: <%= municipe.telefone %></h5>
+            <h5>Status: <%= municipe.status %></h5>
+          </td>
+        </tr>
+        <td class="actions">
+          <ul>
+            <br>
+            <div class="btn btn-outline-primary">
+              <%= link_to 'Mostrar', municipe %>
             </div>
             <div class="btn btn-outline-primary">
-            <%= link_to 'Editar', edit_municipe_path(municipe) %>
-            </div>
-            <div class="btn btn-outline-primary">
-          
-              <%= link_to 'Deletar',
-                           municipe, 
-                          method: :delete,
-                          data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Editar', edit_municipe_path(municipe) %>
             </div>
           </ul>
           <hr>
         </td>
-    <% end %>
-  </tbody>
-</table>
-</div>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
